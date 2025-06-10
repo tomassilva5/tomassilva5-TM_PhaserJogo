@@ -3,15 +3,24 @@ class MainMenuScene extends Phaser.Scene {
     super('MainMenuScene');
   }
 
+  preload() {
+    this.load.image('menuBackground', 'Assets/background.png');
+  }
+
   create() {
-    this.add.text(640, 100, 'Lazy Panda', { fontSize: '64px', fill: '#ffffff' }).setOrigin(0.5);
+    this.add.image(640, 360, 'menuBackground').setDisplaySize(1280, 720); // fundo centralizado
+
+    this.add.text(640, 100, 'Lazy Panda', {
+      fontSize: '64px',
+      fill: '#ffffff'
+    }).setOrigin(0.5);
 
     this.createButton(640, 250, 'Começar Jogo', () => {
       this.scene.start('LevelMenuScene');
     });
 
     this.createButton(640, 320, 'Definições', () => {
-      alert('Definições ainda não disponíveis.');
+      this.scene.start('DefinicoesScene');
     });
   }
 

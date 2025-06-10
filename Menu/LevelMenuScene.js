@@ -3,20 +3,21 @@ class LevelMenuScene extends Phaser.Scene {
     super('LevelMenuScene');
   }
 
+  preload() {
+    this.load.image('menuBackground', 'Assets/background.png');
+  }
+
   create() {
-    this.add.text(640, 100, 'Seleciona o Nível', { fontSize: '48px', fill: '#ffffff' }).setOrigin(0.5);
+    this.add.image(640, 360, 'menuBackground').setDisplaySize(1280, 720);
 
-    this.createButton(640, 220, 'Nível 1', () => {
-      this.scene.start('Nivel1');
-    });
+    this.add.text(640, 100, 'Seleciona o Nível', {
+      fontSize: '48px',
+      fill: '#ffffff'
+    }).setOrigin(0.5);
 
-    this.createButton(640, 290, 'Nível 2', () => {
-      this.scene.start('Nivel2');
-    });
-
-    this.createButton(640, 360, 'Voltar', () => {
-      this.scene.start('MainMenuScene');
-    });
+    this.createButton(640, 220, 'Nível 1', () => this.scene.start('Nivel1'));
+    this.createButton(640, 290, 'Nível 2', () => this.scene.start('Nivel2'));
+    this.createButton(640, 360, 'Voltar', () => this.scene.start('MainMenuScene'));
   }
 
   createButton(x, y, text, callback) {
