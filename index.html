@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8" />
+<title>Lazy Panda - Nível 1</title>
+<style>
+  /* Cabeçalho fixo em cima */
+  #header {
+    background-color: white;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+  }
+  /* Espaço para o jogo abaixo do header, sem margem em baixo */
+  #game-container {
+    position: absolute;
+    top: 50px; /* altura do header */
+    bottom: 0; /* até ao fundo da janela */
+    left: 0;
+    right: 0;
+  }
+  /* Para o canvas do Phaser ocupar toda a área disponível */
+  canvas {
+    width: 100% !important;
+    height: calc(100vh - 50px) !important;
+  }
+</style>
+</head>
+<body>
+<div id="header">Nível 1</div>
+<div id="game-container"></div>
+<!-- Carrega Phaser e os scripts -->
+<script src="https://cdn.jsdelivr.net/npm/phaser@3.11.0/dist/phaser.js"></script>
+<script src="Cenas/nivel1.js"></script>
+<script src="jogo.js"></script>
+</body>
+</html>
